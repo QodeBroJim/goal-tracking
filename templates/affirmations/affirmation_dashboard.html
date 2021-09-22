@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+  .post-body img {
+    width: 100%;
+  }
+</style>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 mt-3 mb-2 offset-4">
+      <h1>Affirmations</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <aside class="float-right">
+    <div>
+      <a href="{% url 'affirmation-create' %}">Create New Affirmation</a>
+    </div>
+  </aside>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 mt-3">
+      {% for affirmation in affirmations %}
+        <h2> Title: 
+          <a href="{{ affirmation.get_absolute_url }}">
+            {{ affirmation.affirmation }} 
+          </a>
+        </h2>
+      <p> Unique URL: {{ affirmation.url }} </p>
+      <p> Goal: {{ affirmation.goal }} </p>
+      <p> User: {{ affirmation.author }} </p>
+      <hr width="100%" color="black" noshade>
+      <br>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

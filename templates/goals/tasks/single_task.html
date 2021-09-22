@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3><a href="{% url 'category-list' %}">Back to Goal</a></h3>
+      <p> Task: {{ task.task }} </p>
+      <p> Unique Identifier: {{ task.url }} </p>
+      <p> Due: {{ task.due }} </p>
+      <p> Completed: {{ task.completed }} </p>
+      <p> Goal: {{ task.goal }} </p>
+      <p> Author: {{ task.author }} </p>
+
+      <div>
+        <a href="{% url 'task-update' pk=task.url %}">Update</a>
+        <a href="{% url 'task-delete' pk=task.url %}">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3><a href="{% url 'goal-dashboard' %}">Back to Goals</a></h3>
+      <p> Goal: {{ goal.goal }} </p>
+      <p> Unique Identifier: {{ goal.url }} </p>
+      <span>
+        <p> Created Date: {{ goal.created_date }} </p>
+        <p> Created Date: {{ goal.target_date }} </p>
+        <p> Created Date: {{ goal.start_date }} </p>
+      </span>
+      <p> Specific: {{ goal.specific }} </p>
+      <p> Measurable: {{ goal.measurable }} </p>
+      <p> Achievable: {{ goal.achievable }} </p>
+      <p> Relevant: {{ goal.relevant }} </p>
+      <p> Timely: {{ goal.timely }} </p>
+      <p> Author: {{ goal.author }} </p>
+
+      <div>
+        <a href="{% url 'goal-update' pk=goal.url %}">Update</a>
+        <a href="{% url 'goal-delete' pk=goal.url %}">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+{% endblock content %}

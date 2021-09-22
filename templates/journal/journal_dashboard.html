@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+  .post-body img {
+    width: 100%;
+  }
+</style>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 mt-3 mb-2 offset-4">
+      <h1>Journal Dashboard</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <aside class="float-right">
+    <div>
+      <a href="{% url 'journal-create' %}">Create New Journal</a>
+    </div>
+  </aside>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 mt-3">
+      {% for journal in journal_entries %}
+        <h2> Title: 
+          <a href="{{ journal.get_absolute_url }}">
+            {{ journal.title }} 
+          </a>
+        </h2>
+      <p> Unique URL: {{ journal.slug }} </p>
+      <p> Entry Date: {{ journal.entry_date }} </p>
+      <p> Entry: {{ journal.content | safe }} </p>
+      <p> User: {{ journal.author }} </p>
+      <hr width="100%" color="black" noshade>
+      <br>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

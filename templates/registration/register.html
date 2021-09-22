@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <div class="col-lg-8 offset-2 mt-3 mb-3">
+        <h1>Set.Smash.Thrive.</h1>
+        <h1>{{ title }}</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+            <button class="btn btn-outline-info" type="submit">Smash!</button>
+        </form>
+    </div>
+    <div class="col-lg-8 offset-2 mt-3">
+        If you already have an account <a href="/login" target="blank"><strong>login</strong></a> instead.
+    </div>
+</div>
+{% endblock content %}

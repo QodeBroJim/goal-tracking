@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3><a href="{% url 'category-list' %}">Back to Categories</a></h3>
+      <h1> Category: {{ category.title }} </h1>
+      <h1> Unique Identifier: {{ category.url }} </h1>
+      <h1> Entry Date: {{ category.description }} </h1>
+      <h1> Author: {{ category.author }} </h1>
+
+      <div>
+        <a href="{% url 'category-update' pk=category.url %}">Update</a>
+        <a href="{% url 'category-delete' pk=category.url %}">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+{% endblock content %}

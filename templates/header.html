@@ -1,0 +1,42 @@
+<header class="header">
+      <!-- Main Navbar-->
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <!-- Navbar Brand -->
+          <div class="navbar-header d-flex align-items-center justify-content-between">
+            <!-- Navbar Brand -->
+            <h2><a href="/"><h2 class="fas fa-seedling">  Goals To Smash</h2></a></h2>
+          </div>
+          <!-- Navbar Menu -->
+          <div id="navbarcollapse" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a href="/" class="nav-link active ">Home</a>
+              </li>
+              {% if request.user.is_authenticated %}
+                <li class="nav-item"><a href="{% url 'goal-dashboard' %}" class="nav-link ">Goals</a>
+                </li>
+                <li class="nav-item"><a href="{% url 'category-list' %}" class="nav-link">Categories</a>
+                </li>
+                <li class="nav-item"><a href="{% url 'journal-list' %}" class="nav-link">Journal</a>
+                </li>
+                <li class="nav-item"><a href="#" class="nav-link">Reports</a>
+                </li>
+                <li class="nav-item"><a href="{% url 'affirmation-list' %}" class="nav-link">Affirmations</a>
+                </li>
+                <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link">Profile</a>
+                </li>
+              {% endif %}
+              {% if request.user.is_authenticated %}
+                <li class="nav-item"><a href="/accounts/logout/" class="nav-link">Logout</a>
+                </li>
+              {% else %}
+                <li class="nav-item"><a href="/accounts/login/" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item"><a href="/accounts/register/" class="nav-link"><strong>Sign Up</strong></a>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>

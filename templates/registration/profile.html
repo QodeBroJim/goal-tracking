@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load badgify_tags %}
+{% block title %}User Profile{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<style>
+    img {
+        width: 25%;
+        height: 25%;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 offset-4 mt-5">
+            <p>Username: {{ user.username }} </p>
+            <p>Email: {{ user.email }} </p>
+            <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+            <p>Avatar: <img src="{{ user.avatar.url }}" alt="..." class="img-fluid"><p>
+            {% badgify_badges user=user as badges %}
+            {% for badge in badges %}
+               <p>Badges:<img src="{{ badge.image.url }}"></p>
+            {% endfor %}
+        <br>
+        <p><a href="{% url 'home' %}">homepage</a></p>
+        <p><a href="{% url 'logout' %}">logout</a></p>
+        <p><a href="{% url 'user-update' %}">Update Profile</a></p>
+    {% else %}
+        <a href="{% url 'login' %}">login</a> |
+        <a href="{% url 'registration' %}">signup</a>
+    {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
