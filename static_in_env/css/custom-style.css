@@ -1,0 +1,95 @@
+/* Site Wide Settings */
+a {
+	color: black;
+}
+
+a:hover {
+	color: #d52a2a;
+}
+
+/* Navbar */
+.navbar {
+	font-family: 'Playfair';
+}
+
+.navbar .navbar-nav .nav-item a {
+	color: black;
+}
+
+.navbar .navbar-nav .nav-item a:hover {
+	color: #d52a2a;
+}
+
+.navbar .d-inline a {
+	color: black;
+}
+
+.navbar .d-inline a:hover {
+	color: #d52a2a;
+}
+
+/* Page Components */
+.jumbotron {
+	font-family: 'Playfair';
+}
+
+.display-4 {
+	font-family: 'Playfair';
+}
+
+p {
+	font-family: 'Roboto';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: 'Playfair';
+}
+
+/* Footer */
+footer ul li a {
+	font-family: 'Roboto';
+}
+
+.text-muted {
+	color: black !important;
+}
+
+.text-muted:hover {
+	color: #d52a2a !important;
+}
+
+/* Home page sign up form */
+button.btn.btn-outline-info {
+	background-color: #d52a2a;
+	color: white;
+	border-color: #d52a2a;
+}
+
+button.btn.btn-outline-info:hover {
+	background-color: white;
+	color: #d52a2a;
+	border-color: black;
+}
+
+.btn.btn-outline-info.btn-block:active {
+	background-color: #d52a2a;
+	color: #ffffff;
+	border-color: black;
+}
+
+/* Button Styling */
+a.btn.btn-secondary {
+	background-color: #d52a2a;
+	color: white;
+	border-color: #d52a2a;
+}
+
+a.btn.btn-secondary:hover {
+	background-color: white;
+	color: #d52a2a;
+	border-color: black;
+}

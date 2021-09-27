@@ -16,6 +16,9 @@
     <p>Please login to see this page.</p>
     {% endif %}
 {% endif %}
+<div class = "row justify-content-center mt-3 mb-3">
+    <h1>Login And Smash Those Goals</h1>
+</div>
 <div class="container">
     <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
@@ -27,11 +30,13 @@
             {{ form.password|as_crispy_field }}
         </div>
     </div>
-    <input type="submit" value="login">
-    <input type="hidden" name="next" value="{{ next }}">
+    <div class="col-md-12 text-center">
+        <button class="btn btn-outline-info btn-block" type="submit">Login</button>
+    </div>
     </form>
-
-    <div class="col-lg-8"><p><a href="{% url 'password_reset' %}">Lost password?</a></p></div>
+    <br>
+    <div class="reset-link"><p><a href="{% url 'password_reset' %}">Lost password?</a></p></div>
+    <hr>
 </div>
 
 {% endblock %}

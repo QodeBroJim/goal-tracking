@@ -19,5 +19,5 @@ class JournalEntryForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['author'].queryset = CustomUser.objects.filter(username=get_current_user())
+        self.fields['author'].queryset = CustomUser.objects.filter(email=get_current_user())
         self.fields['goal'].queryset = Goal.objects.filter(author=get_current_user())

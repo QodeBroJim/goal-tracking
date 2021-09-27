@@ -1,7 +1,104 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
-<h1>Set.Smash.Thrive.</h1>
+<div class = "jumbotron">
+    <div class="container">
+        <div class = "row justify-content-center">
+                <h1>Set. Smash. Thrive.</h1>
+        </div>
+    </div>
+</div>
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 font-weight-normal">Make progress towards your dreams today.</h1>
+        <p class="lead font-weight-normal">Your goals are obtainable! Start tracking your progress and watch your life grow.</p>
+    </div>
+    <div class="product-device box-shadow d-none d-md-block"></div>
+    <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 mt-3 mb-3">
+            <div class="col-md-12 text-center"><h1>{{ title }}</h1></div>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-3 mb-0">
+                        {{ form.email|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0">
+                        {{ form.username|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0">
+                        {{ form.first_name|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0">
+                        {{ form.last_name|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-2 text-center mt-2">
+                        <p>Select an avatar</p>
+                    </div>
+                    <div class="form-group col-md-10 mb-0">
+                            {{ form.avatar|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.password1|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.password2|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-outline-info" type="submit">Smash!</button>
+                    </div>
+                </div>
+            </form>
+            <div class="col-md-12 text-center">
+                If you already have an account <a href="/accounts/login" target="blank"><strong>login</strong></a> instead.
+                <div class="container"><hr></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Set Goals</h2>
+            <p>Set your own goals and track your progress. With Goals to Smash you're able to break goals down into tasks and chip away at them until you reach the finsih line.
+                Tracking your goals is important for self-development which in turn leads to career growth. 
+            </p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Journal</h2>
+            <p>Ever wonder how you got so much done in one day and then so little on another? Keeping a log of your day to day actions can help you nail down a solid morning, mid-day
+                and night time routine. This will not only boost your mood but also your sleep.
+            </p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Affirmations</h2>
+            <p>We give our users the ability to not only create their own affirmations, but provide an interface to have them 
+                sent via email every morning, lunch time or evening. This will help you start to build positive self speaking. 
+                It's shown to improve focus as well as promote self-confidence!
+            </p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+        </div>
+    </div>
+    <hr>
+</div>
+
 
 {% endblock content %}

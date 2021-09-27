@@ -5,6 +5,7 @@ from .models import Category, Goal, Task
 from users.models import CustomUser
 
 
+
 class CategoryForm(forms.ModelForm):
     
     class Meta:
@@ -13,7 +14,7 @@ class CategoryForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['author'].queryset = CustomUser.objects.filter(username=get_current_user())
+        self.fields['author'].queryset = CustomUser.objects.filter(email=get_current_user())
 
 
 class GoalForm(forms.ModelForm):
@@ -28,7 +29,7 @@ class GoalForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['author'].queryset = CustomUser.objects.filter(username = get_current_user())
+        self.fields['author'].queryset = CustomUser.objects.filter(email = get_current_user())
         self.fields['goal'].queryset = Goal.objects.filter(author = get_current_user())
         self.fields['category'].queryset = Category.objects.filter(author = get_current_user())
 
@@ -40,6 +41,6 @@ class TaskForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['author'].queryset = CustomUser.objects.filter(username = get_current_user())
+        self.fields['author'].queryset = CustomUser.objects.filter(email = get_current_user())
         self.fields['goal'].queryset = Goal.objects.filter(author = get_current_user())
         

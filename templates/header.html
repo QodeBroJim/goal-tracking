@@ -1,11 +1,14 @@
+{% load static %}
+
 <header class="header">
       <!-- Main Navbar-->
       <nav class="navbar navbar-expand-lg">
         <div class="container">
           <!-- Navbar Brand -->
+          <img class="navbar-logo" src="{% static 'img/GoalsToSmashLogo.png' %}" width="35" height="35" alt="GoalsToSmashLogo">
           <div class="navbar-header d-flex align-items-center justify-content-between">
             <!-- Navbar Brand -->
-            <h2><a href="/"><h2 class="fas fa-seedling">  Goals To Smash</h2></a></h2>
+            <div class="d-inline p-2"><a href="/"><h2>Goals To Smash</h2></a></div>
           </div>
           <!-- Navbar Menu -->
           <div id="navbarcollapse" class="collapse navbar-collapse">
@@ -18,8 +21,6 @@
                 <li class="nav-item"><a href="{% url 'category-list' %}" class="nav-link">Categories</a>
                 </li>
                 <li class="nav-item"><a href="{% url 'journal-list' %}" class="nav-link">Journal</a>
-                </li>
-                <li class="nav-item"><a href="#" class="nav-link">Reports</a>
                 </li>
                 <li class="nav-item"><a href="{% url 'affirmation-list' %}" class="nav-link">Affirmations</a>
                 </li>

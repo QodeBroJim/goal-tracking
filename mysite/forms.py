@@ -1,13 +1,13 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser
+from django.contrib.auth.forms import UserCreationForm
+from users.models import CustomUser
 
-class CustomUserCreationForm(UserCreationForm):
+class IndexUserCreationForm(UserCreationForm):
     email = forms.CharField(widget=forms.EmailInput(attrs={'class': 'validate',}))
     avatar = forms.ImageField(widget=forms.ClearableFileInput(attrs={'placeholder': 'validate',}))
     
     def __init__(self, *args, **kwargs):
-            super(CustomUserCreationForm, self).__init__(*args, **kwargs)
+            super(IndexUserCreationForm, self).__init__(*args, **kwargs)
             self.fields['password1'].help_text = ''
             self.fields['password2'].help_text = ''
             self.fields['username'].help_text = ''
@@ -30,9 +30,3 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ('email', 'username', 'first_name', 'last_name', 'avatar',)
-
-class CustomUserChangeForm(UserChangeForm):
-    email = forms.CharField(widget=forms.EmailInput(attrs={'class': 'validate',}))
-    class Meta:
-        model = CustomUser
-        fields = ('email', 'username', 'first_name', 'last_name', 'password', 'avatar',)
