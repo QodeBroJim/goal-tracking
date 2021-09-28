@@ -7,3 +7,9 @@ pip-selfcheck.json
 
 # Django related 
 mysite/settings.py
+
+# Environment Settings
+.env
+
+# Docker
+docker-compose.yml
