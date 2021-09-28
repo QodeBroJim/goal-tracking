@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, redirect, render, reverse
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import CustomUser
+from goals.models import Goal
 
 def get_profile(user):
     profile = CustomUser.objects.filter(username=user.username)
@@ -31,8 +32,10 @@ def register(request):
 
 def profile(request):
     user = get_profile(request.user)
+    goal = Goal.objects.filter(author=user, status='in-progress')
     context = {
         'user': user,
+        'goal': goal,
     }
     return render(request, template_name='registration/profile.html', context=context)
 

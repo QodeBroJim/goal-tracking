@@ -1,0 +1,9 @@
+.DS_STORE
+
+# Virtualenv related
+bin/
+include/
+pip-selfcheck.json
+
+# Django related 
+mysite/settings.py
